@@ -1,6 +1,33 @@
 import React from 'react';
 
 const Contact = ({ darkMode }) => {
+  const contactInfo = [
+    {
+      icon: <i className="fas fa-phone"></i>,
+      label: 'Phone',
+      value: '+964 770 123 4567',
+      link: 'tel:+9647701234567'
+    },
+    {
+      icon: <i className="fas fa-envelope"></i>,
+      label: 'Email',
+      value: 'muneer.hadi@gmail.com',
+      link: 'mailto:muneer.hadi@gmail.com'
+    },
+    {
+      icon: <i className="fab fa-linkedin"></i>,
+      label: 'LinkedIn',
+      value: 'linkedin.com/in/muneer-hadi',
+      link: 'https://linkedin.com/in/muneer-hadi'
+    },
+    {
+      icon: <i className="fab fa-github"></i>,
+      label: 'GitHub',
+      value: 'github.com/muneer-hadi',
+      link: 'https://github.com/muneer-hadi'
+    }
+  ];
+
   return (
     <section 
       id="contact" 
@@ -27,66 +54,83 @@ const Contact = ({ darkMode }) => {
         <h2 style={{ 
           color: 'white', 
           borderColor: 'white',
-          animation: 'fadeInUp 0.8s ease-out'
+          animation: 'fadeInUp 0.8s ease-out',
+          marginBottom: '20px'
         }}>Contact Me</h2>
+        
         <p style={{ 
           fontSize: 'clamp(1rem, 3vw, 1.3rem)', 
-          marginBottom: '40px',
+          marginBottom: '50px',
           animation: 'fadeInUp 0.8s ease-out 0.2s both',
           fontWeight: '300',
           opacity: '0.9'
         }}>
           Let's connect and discuss opportunities!
         </p>
+        
         <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: 'clamp(15px, 3vw, 25px)',
-          flexWrap: 'wrap',
-          maxWidth: '600px',
-          margin: '0 auto'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '30px',
+          marginBottom: '50px'
         }}>
-          <a 
-            href="mailto:muneer.hadi@example.com" 
-            className="btn"
-            style={{ 
-              background: 'rgba(255,255,255,0.15)',
-              animation: 'fadeInUp 0.8s ease-out 0.4s both',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255,255,255,0.3)',
-              fontSize: 'clamp(0.9rem, 2vw, 1rem)'
-            }}
-          >
-            📧 Email Me
-          </a>
-          <a 
-            href="https://linkedin.com/in/muneer-hadi" 
-            className="btn"
-            style={{ 
-              background: 'rgba(255,255,255,0.15)',
-              animation: 'fadeInUp 0.8s ease-out 0.6s both',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255,255,255,0.3)',
-              fontSize: 'clamp(0.9rem, 2vw, 1rem)'
-            }}
-          >
-            💼 LinkedIn
-          </a>
-          <a 
-            href="https://github.com/muneer-hadi" 
-            className="btn"
-            style={{ 
-              background: 'rgba(255,255,255,0.15)',
-              animation: 'fadeInUp 0.8s ease-out 0.8s both',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255,255,255,0.3)',
-              fontSize: 'clamp(0.9rem, 2vw, 1rem)'
-            }}
-          >
-            🚀 GitHub
-          </a>
+          {contactInfo.map((contact, index) => (
+            <a 
+              key={index}
+              href={contact.link}
+              style={{
+                background: 'rgba(255,255,255,0.1)',
+                padding: '25px',
+                borderRadius: '20px',
+                textDecoration: 'none',
+                color: 'white',
+                transition: 'all 0.3s ease',
+                animation: `fadeInUp 0.8s ease-out ${0.4 + index * 0.1}s both`,
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255,255,255,0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '20px'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-5px)';
+                e.target.style.background = 'rgba(255,255,255,0.2)';
+                e.target.style.boxShadow = '0 10px 30px rgba(116, 185, 255, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.background = 'rgba(255,255,255,0.1)';
+                e.target.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{
+                fontSize: '2rem',
+                minWidth: '50px',
+                color: '#74b9ff'
+              }}>
+                {contact.icon}
+              </div>
+              <div>
+                <h4 style={{
+                  margin: '0 0 5px 0',
+                  fontSize: '1.2rem',
+                  fontFamily: 'Poppins, sans-serif'
+                }}>
+                  {contact.label}
+                </h4>
+                <p style={{
+                  margin: 0,
+                  opacity: '0.8',
+                  fontSize: '1rem'
+                }}>
+                  {contact.value}
+                </p>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
+      
       <div style={{
         position: 'absolute',
         top: 0,

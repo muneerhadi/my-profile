@@ -6,7 +6,7 @@ const About = ({ darkMode }) => {
       id="about" 
       className={`section ${darkMode ? 'dark' : ''}`} 
       style={{ 
-        background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)',
+        background: 'linear-gradient(135deg, #0c0c1e 0%, #1a1a2e 30%, #16213e 60%, #0f3460 100%)',
         transition: 'all 0.3s ease',
         position: 'relative',
         overflow: 'hidden'
@@ -18,7 +18,7 @@ const About = ({ darkMode }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'radial-gradient(circle at 20% 80%, rgba(116, 185, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(116, 185, 255, 0.05) 0%, transparent 50%)',
+        background: 'radial-gradient(circle at 20% 80%, rgba(116, 185, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.1) 0%, transparent 50%)',
         zIndex: 1
       }} />
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
@@ -42,7 +42,7 @@ const About = ({ darkMode }) => {
               marginBottom: '20px',
               fontFamily: 'Poppins, sans-serif',
               fontSize: '1.5rem'
-            }}>👨‍💻 Personal</h3>
+            }}><i className="fas fa-user"></i> Personal</h3>
             <p style={{
               fontSize: '1.1rem',
               lineHeight: '1.8',
@@ -68,7 +68,7 @@ const About = ({ darkMode }) => {
               marginBottom: '20px',
               fontFamily: 'Poppins, sans-serif',
               fontSize: '1.5rem'
-            }}>🎓 Education</h3>
+            }}><i className="fas fa-graduation-cap"></i> Education</h3>
             <div style={{ marginBottom: '25px' }}>
               <h4 style={{
                 color: '#fff',

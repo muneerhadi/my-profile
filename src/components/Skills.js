@@ -1,10 +1,61 @@
 import React from 'react';
 
 const Skills = ({ darkMode }) => {
-  const skills = [
-    'React', 'JavaScript', 'Java', 'Python',
-    'Node.js', 'PostgreSQL', 'Git', 'HTML/CSS'
-  ];
+  const frontendSkills = ['React', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Vue.js', 'Angular'];
+  const backendSkills = ['Node.js', 'Python', 'Java', 'PHP', 'Express.js', 'Django'];
+  const tools = ['Git', 'Docker', 'AWS', 'PostgreSQL', 'MongoDB', 'VS Code'];
+
+  const SkillCategory = ({ title, skills, icon, delay }) => (
+    <div style={{
+      background: 'rgba(45, 45, 45, 0.8)',
+      padding: '30px',
+      borderRadius: '20px',
+      border: '1px solid rgba(116, 185, 255, 0.2)',
+      animation: `fadeInUp 0.8s ease-out ${delay}s both`
+    }}>
+      <h3 style={{
+        color: '#74b9ff',
+        marginBottom: '25px',
+        fontFamily: 'Poppins, sans-serif',
+        fontSize: '1.5rem',
+        textAlign: 'center'
+      }}>{icon} {title}</h3>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+        gap: '15px'
+      }}>
+        {skills.map((skill, index) => (
+          <div 
+            key={index} 
+            style={{
+              padding: '15px',
+              background: 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)',
+              color: 'white',
+              borderRadius: '12px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 8px 25px rgba(116, 185, 255, 0.2)',
+              fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+              textAlign: 'center',
+              fontFamily: 'Inter, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'translateY(-5px) scale(1.05)';
+              e.target.style.boxShadow = '0 15px 35px rgba(116, 185, 255, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'translateY(0) scale(1)';
+              e.target.style.boxShadow = '0 8px 25px rgba(116, 185, 255, 0.2)';
+            }}
+          >
+            {skill}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <section 
@@ -30,49 +81,28 @@ const Skills = ({ darkMode }) => {
         <h2>Skills</h2>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(120px, 20vw, 180px), 1fr))',
-          gap: 'clamp(15px, 3vw, 25px)',
-          marginTop: '50px',
-          maxWidth: '900px',
-          margin: '50px auto 0'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+          gap: '40px',
+          marginTop: '50px'
         }}>
-          {skills.map((skill, index) => (
-            <div 
-              key={index} 
-              style={{
-                padding: 'clamp(15px, 3vw, 25px)',
-                background: darkMode 
-                  ? 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)'
-                  : 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)',
-                color: 'white',
-                borderRadius: '15px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
-                boxShadow: darkMode 
-                  ? '0 8px 25px rgba(116, 185, 255, 0.2)'
-                  : '0 8px 25px rgba(52, 152, 219, 0.2)',
-                fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
-                textAlign: 'center',
-                fontFamily: 'Poppins, sans-serif'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-8px) scale(1.05)';
-                e.target.style.boxShadow = darkMode 
-                  ? '0 15px 35px rgba(116, 185, 255, 0.4)'
-                  : '0 15px 35px rgba(52, 152, 219, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = darkMode 
-                  ? '0 8px 25px rgba(116, 185, 255, 0.2)'
-                  : '0 8px 25px rgba(52, 152, 219, 0.2)';
-              }}
-            >
-              {skill}
-            </div>
-          ))}
+        <SkillCategory 
+            title="Frontend" 
+            skills={frontendSkills} 
+            icon={<i className="fas fa-palette"></i>} 
+            delay={0.2}
+          />
+          <SkillCategory 
+            title="Backend" 
+            skills={backendSkills} 
+            icon={<i className="fas fa-server"></i>} 
+            delay={0.4}
+          />
+          <SkillCategory 
+            title="Tools" 
+            skills={tools} 
+            icon={<i className="fas fa-tools"></i>} 
+            delay={0.6}
+          />
         </div>
       </div>
     </section>
