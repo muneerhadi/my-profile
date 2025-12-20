@@ -11,11 +11,22 @@ const Skills = ({ darkMode }) => {
       id="skills" 
       className={`section ${darkMode ? 'dark' : ''}`}
       style={{
-        background: darkMode ? '#0f0f0f' : 'white',
-        transition: 'all 0.3s ease'
+        background: 'linear-gradient(135deg, #0f0f0f 0%, #1e1e1e 50%, #0f0f0f 100%)',
+        transition: 'all 0.3s ease',
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
-      <div className="container">
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'conic-gradient(from 0deg at 50% 50%, rgba(52, 152, 219, 0.1) 0deg, transparent 60deg, rgba(52, 152, 219, 0.05) 120deg, transparent 180deg, rgba(52, 152, 219, 0.1) 240deg, transparent 300deg)',
+        zIndex: 1
+      }} />
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <h2>Skills</h2>
         <div style={{
           display: 'grid',
@@ -55,4 +66,17 @@ const Skills = ({ darkMode }) => {
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0) scale(1)';
                 e.target.style.boxShadow = darkMode 
-             
+                  ? '0 8px 25px rgba(116, 185, 255, 0.2)'
+                  : '0 8px 25px rgba(52, 152, 219, 0.2)';
+              }}
+            >
+              {skill}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;

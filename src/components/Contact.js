@@ -6,9 +6,7 @@ const Contact = ({ darkMode }) => {
       id="contact" 
       className={`section ${darkMode ? 'dark' : ''}`} 
       style={{
-        background: darkMode 
-          ? 'linear-gradient(135deg, #0f0f0f 0%, #2d3436 100%)'
-          : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 30%, #16213e 60%, #0f3460 100%)',
         color: 'white',
         transition: 'all 0.3s ease',
         position: 'relative',
@@ -16,7 +14,16 @@ const Contact = ({ darkMode }) => {
         padding: 'clamp(60px, 10vw, 100px) 20px'
       }}
     >
-      <div className="container">
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(116, 185, 255, 0.1) 0%, transparent 50%)',
+        zIndex: 1
+      }} />
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <h2 style={{ 
           color: 'white', 
           borderColor: 'white',
@@ -86,4 +93,12 @@ const Contact = ({ darkMode }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'url("data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="
+        background: 'url("data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M20 20c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8zm0-20c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8 8 3.6 8 8z"/%3E%3C/g%3E%3C/svg%3E")',
+        animation: 'float 8s ease-in-out infinite reverse',
+        zIndex: 1
+      }} />
+    </section>
+  );
+};
+
+export default Contact;

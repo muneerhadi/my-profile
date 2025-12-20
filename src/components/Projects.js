@@ -24,11 +24,22 @@ const Projects = ({ darkMode }) => {
       id="projects" 
       className={`section ${darkMode ? 'dark' : ''}`} 
       style={{ 
-        background: darkMode ? '#1a1a1a' : '#f8f9fa',
-        transition: 'all 0.3s ease'
+        background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 30%, #1a1a1a 70%, #0f0f0f 100%)',
+        transition: 'all 0.3s ease',
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
-      <div className="container">
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'radial-gradient(ellipse at top, rgba(116, 185, 255, 0.08) 0%, transparent 70%), radial-gradient(ellipse at bottom, rgba(52, 152, 219, 0.05) 0%, transparent 70%)',
+        zIndex: 1
+      }} />
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <h2>Projects</h2>
         <div style={{
           display: 'grid',
@@ -86,4 +97,21 @@ const Projects = ({ darkMode }) => {
               }}>
                 {project.description}
               </p>
-              <p style
+              <p style={{ 
+                color: darkMode ? '#74b9ff' : '#3498db', 
+                fontWeight: '600',
+                fontSize: 'clamp(0.8rem, 2vw, 1rem)',
+                transition: 'color 0.3s ease',
+                fontFamily: 'Inter, sans-serif'
+              }}>
+                {project.tech}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
