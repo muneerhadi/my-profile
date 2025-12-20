@@ -14,9 +14,9 @@ const Header = ({ darkMode }) => {
       {/* Top left name */}
       <a href="#home" style={{
         position: 'absolute',
-        top: '20px',
-        left: '40px',
-        fontSize: 'clamp(2rem, 5vw, 3rem)',
+        top: 'clamp(15px, 3vw, 20px)',
+        left: 'clamp(20px, 5vw, 40px)',
+        fontSize: 'clamp(1.5rem, 4vw, 3rem)',
         fontFamily: 'Birthstone, cursive',
         fontWeight: '400',
         zIndex: 100,
@@ -40,10 +40,10 @@ const Header = ({ darkMode }) => {
       {/* Moon */}
       <div style={{
         position: 'absolute',
-        top: '80px',
-        right: '100px',
-        width: '120px',
-        height: '120px',
+        top: 'clamp(60px, 10vw, 80px)',
+        right: 'clamp(20px, 8vw, 100px)',
+        width: 'clamp(80px, 12vw, 120px)',
+        height: 'clamp(80px, 12vw, 120px)',
         borderRadius: '50%',
         background: 'radial-gradient(circle at 30% 30%, #fff, #e0e0e0)',
         boxShadow: '0 0 60px rgba(255,255,255,0.3), inset -10px -10px 20px rgba(0,0,0,0.1)',
@@ -130,12 +130,13 @@ const Header = ({ darkMode }) => {
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 40px',
+        padding: 'clamp(20px, 5vw, 40px)',
         width: '100%',
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '60px',
-        alignItems: 'center'
+        gridTemplateColumns: window.innerWidth <= 768 ? '1fr' : '1fr 1fr',
+        gap: 'clamp(30px, 8vw, 60px)',
+        alignItems: 'center',
+        textAlign: window.innerWidth <= 768 ? 'center' : 'left'
       }}>
         {/* Left Side - Name and About */}
         <div style={{
@@ -143,9 +144,9 @@ const Header = ({ darkMode }) => {
         }}>
           <h1 style={{
             fontFamily: 'Playfair Display, serif',
-            fontSize: 'clamp(3rem, 6vw, 5rem)',
+            fontSize: 'clamp(2.5rem, 8vw, 5rem)',
             fontWeight: '700',
-            marginBottom: '20px',
+            marginBottom: 'clamp(15px, 3vw, 20px)',
             background: 'linear-gradient(45deg, #fff, #87CEEB)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -154,11 +155,11 @@ const Header = ({ darkMode }) => {
           }}>Muneer Hadi</h1>
           
           <p style={{
-            fontSize: 'clamp(1.2rem, 3vw, 1.6rem)',
+            fontSize: 'clamp(1rem, 4vw, 1.6rem)',
             fontWeight: '400',
-            marginBottom: '30px',
+            marginBottom: 'clamp(20px, 4vw, 30px)',
             opacity: '0.95',
-            animation: 'fadeInUp 1s ease-out 0.6s both, typewriter 3s steps(40) 2s forwards',
+            animation: window.innerWidth <= 768 ? 'fadeInUp 1s ease-out 0.6s both' : 'fadeInUp 1s ease-out 0.6s both, typewriter 3s steps(40) 2s forwards',
             background: 'linear-gradient(45deg, #74b9ff, #0984e3, #00cec9)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
@@ -166,16 +167,16 @@ const Header = ({ darkMode }) => {
             fontFamily: 'Poppins, sans-serif',
             letterSpacing: '1px',
             textShadow: '0 0 20px rgba(116, 185, 255, 0.3)',
-            borderRight: '2px solid #74b9ff',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            width: '0'
+            borderRight: window.innerWidth <= 768 ? 'none' : '2px solid #74b9ff',
+            whiteSpace: window.innerWidth <= 768 ? 'normal' : 'nowrap',
+            overflow: window.innerWidth <= 768 ? 'visible' : 'hidden',
+            width: window.innerWidth <= 768 ? 'auto' : '0'
           }}>I'm Full Stack Developer & Software Engineer</p>
           
           <p style={{
-            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            fontSize: 'clamp(0.9rem, 3vw, 1.2rem)',
             lineHeight: '1.7',
-            marginBottom: '40px',
+            marginBottom: 'clamp(30px, 6vw, 40px)',
             opacity: '0.8',
             animation: 'fadeInUp 1s ease-out 0.9s both'
           }}>
@@ -204,8 +205,8 @@ const Header = ({ darkMode }) => {
               src="/images/hadi.jpg" 
               alt="Muneer Hadi"
               style={{
-                width: 'clamp(250px, 25vw, 350px)',
-                height: 'clamp(250px, 25vw, 350px)',
+                width: 'clamp(200px, 30vw, 350px)',
+                height: 'clamp(200px, 30vw, 350px)',
                 borderRadius: '50%',
                 objectFit: 'cover',
                 border: '4px solid rgba(255,255,255,0.3)',

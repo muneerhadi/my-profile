@@ -70,8 +70,8 @@ const Contact = ({ darkMode }) => {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '20px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: 'clamp(15px, 3vw, 20px)',
           marginBottom: '50px'
         }}>
           {contactInfo.map((contact, index) => (
@@ -81,7 +81,7 @@ const Contact = ({ darkMode }) => {
               style={{
                 background: 'rgba(255, 255, 255, 0.05)',
                 backdropFilter: 'blur(20px)',
-                padding: '25px 20px',
+                padding: 'clamp(20px, 4vw, 25px) clamp(15px, 3vw, 20px)',
                 borderRadius: '25px',
                 textDecoration: 'none',
                 color: 'white',
@@ -90,12 +90,12 @@ const Contact = ({ darkMode }) => {
                 border: '1px solid rgba(255,255,255,0.3)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '15px',
+                gap: 'clamp(10px, 2vw, 15px)',
                 boxShadow: '0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
                 position: 'relative',
                 overflow: 'hidden',
                 height: 'auto',
-                minHeight: '80px'
+                minHeight: 'clamp(70px, 12vw, 80px)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
@@ -121,8 +121,8 @@ const Contact = ({ darkMode }) => {
                 animation: `shine 4s infinite ${index * 0.5}s`
               }} />
               <div style={{
-                fontSize: '1.8rem',
-                minWidth: '40px',
+                fontSize: 'clamp(1.5rem, 4vw, 1.8rem)',
+                minWidth: 'clamp(35px, 6vw, 40px)',
                 color: '#74b9ff',
                 position: 'relative',
                 zIndex: 2
@@ -132,7 +132,7 @@ const Contact = ({ darkMode }) => {
               <div style={{ position: 'relative', zIndex: 2, flex: 1, minWidth: 0 }}>
                 <h4 style={{
                   margin: '0 0 3px 0',
-                  fontSize: '1.1rem',
+                  fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
                   fontFamily: 'Poppins, sans-serif'
                 }}>
                   {contact.label}
@@ -140,7 +140,7 @@ const Contact = ({ darkMode }) => {
                 <p style={{
                   margin: 0,
                   opacity: '0.8',
-                  fontSize: '0.85rem',
+                  fontSize: 'clamp(0.75rem, 2vw, 0.85rem)',
                   wordBreak: 'break-word',
                   overflowWrap: 'break-word',
                   lineHeight: '1.3'
