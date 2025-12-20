@@ -227,6 +227,55 @@ const Header = ({ darkMode }) => {
         </div>
       </div>
       
+      {/* Scroll Down Button */}
+      <div style={{
+        position: 'absolute',
+        bottom: '30px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 100
+      }}>
+        <a href="#about" style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textDecoration: 'none',
+          color: 'white',
+          animation: 'bounce 2s infinite',
+          transition: 'all 0.3s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'scale(1.1)';
+          e.currentTarget.style.color = '#74b9ff';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'scale(1)';
+          e.currentTarget.style.color = 'white';
+        }}
+        >
+          <div style={{
+            width: '40px',
+            height: '40px',
+            border: '2px solid rgba(255,255,255,0.8)',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '8px',
+            backdropFilter: 'blur(10px)',
+            background: 'rgba(255,255,255,0.1)'
+          }}>
+            <i className="fas fa-chevron-down" style={{ fontSize: '16px' }}></i>
+          </div>
+          <span style={{
+            fontSize: '12px',
+            fontWeight: '500',
+            letterSpacing: '1px',
+            textTransform: 'uppercase'
+          }}>Scroll Down</span>
+        </a>
+      </div>
+      
       <style jsx>{`
         @keyframes typewriter {
           0% {

@@ -26,64 +26,99 @@ const About = ({ darkMode }) => {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '40px',
-          marginTop: '50px'
+          gap: '30px',
+          marginTop: '30px'
         }}>
           {/* Personal Info */}
           <div style={{
-            background: 'rgba(45, 45, 45, 0.8)',
-            padding: '30px',
-            borderRadius: '20px',
-            border: '1px solid rgba(116, 185, 255, 0.2)',
-            animation: 'fadeInUp 0.8s ease-out 0.2s both'
+            background: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(20px)',
+            padding: '35px',
+            borderRadius: '25px',
+            border: '1px solid rgba(116, 185, 255, 0.3)',
+            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+            animation: 'fadeInUp 0.8s ease-out 0.2s both',
+            position: 'relative',
+            overflow: 'hidden'
           }}>
+            {/* Glass shine effect */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: '-100%',
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+              animation: 'shine 3s infinite'
+            }} />
+            
             <h3 style={{
               color: '#74b9ff',
-              marginBottom: '20px',
+              marginBottom: '25px',
               fontFamily: 'Poppins, sans-serif',
-              fontSize: '1.5rem'
+              fontSize: '1.6rem',
+              fontWeight: '600',
+              textShadow: '0 0 10px rgba(116, 185, 255, 0.3)'
             }}><i className="fas fa-user"></i> Personal</h3>
             <p style={{
               fontSize: '1.1rem',
               lineHeight: '1.8',
-              color: '#ccc'
+              color: '#e0e0e0',
+              position: 'relative',
+              zIndex: 2
             }}>
-              I'm a passionate software developer with experience in building web applications 
-              and systems. I enjoy creating efficient, scalable solutions and learning new technologies. 
-              With a strong foundation in both frontend and backend development, I love turning 
-              ideas into reality through clean, maintainable code.
+              I'm a university student passionate about software development, working to improve my skills in both frontend and backend development. I enjoy building real projects from desktop applications to full web systems.
+              <br /><br />
+              I work with Python (Django, Flask), PHP (Laravel), and create interactive UIs using React and Vue.js. I also have experience with MySQL and Oracle databases.
             </p>
           </div>
           
           {/* Education */}
           <div style={{
-            background: 'rgba(45, 45, 45, 0.8)',
-            padding: '30px',
-            borderRadius: '20px',
-            border: '1px solid rgba(116, 185, 255, 0.2)',
-            animation: 'fadeInUp 0.8s ease-out 0.4s both'
+            background: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(20px)',
+            padding: '35px',
+            borderRadius: '25px',
+            border: '1px solid rgba(116, 185, 255, 0.3)',
+            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+            animation: 'fadeInUp 0.8s ease-out 0.4s both',
+            position: 'relative',
+            overflow: 'hidden'
           }}>
+            {/* Glass shine effect */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: '-100%',
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+              animation: 'shine 3s infinite 1.5s'
+            }} />
+            
             <h3 style={{
               color: '#74b9ff',
-              marginBottom: '20px',
+              marginBottom: '25px',
               fontFamily: 'Poppins, sans-serif',
-              fontSize: '1.5rem'
+              fontSize: '1.6rem',
+              fontWeight: '600',
+              textShadow: '0 0 10px rgba(116, 185, 255, 0.3)'
             }}><i className="fas fa-graduation-cap"></i> Education</h3>
             <div style={{ marginBottom: '25px' }}>
               <h4 style={{
                 color: '#fff',
                 fontSize: '1.2rem',
                 marginBottom: '8px'
-              }}>Bachelor of Computer Science</h4>
+              }}>Bachelor of Information Systems</h4>
               <p style={{
                 color: '#74b9ff',
                 fontSize: '1rem',
                 marginBottom: '5px'
-              }}>University of Technology</p>
+              }}>Kabul University</p>
               <p style={{
                 color: '#aaa',
                 fontSize: '0.9rem'
-              }}>2020 - 2024</p>
+              }}>Third Year Student (Current)</p>
             </div>
             <div>
               <h4 style={{
@@ -95,11 +130,11 @@ const About = ({ darkMode }) => {
                 color: '#74b9ff',
                 fontSize: '1rem',
                 marginBottom: '5px'
-              }}>Al-Mustaqbal High School</p>
+              }}>Fazel Beek High School</p>
               <p style={{
                 color: '#aaa',
                 fontSize: '0.9rem'
-              }}>2016 - 2020</p>
+              }}>Graduated 2022</p>
             </div>
           </div>
         </div>
