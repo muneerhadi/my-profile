@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   useEffect(() => {
     // Scroll progress bar
     const updateScrollProgress = () => {
@@ -22,6 +24,9 @@ function App() {
         document.body.appendChild(progressBar);
       }
       progressBar.style.width = scrollPercent + '%';
+      
+      // Show scroll to top button after first section
+      setShowScrollTop(scrollTop > window.innerHeight);
     };
 
     const handleParallax = () => {
@@ -78,6 +83,13 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="App dark">
       <Header darkMode={true} />
@@ -86,6 +98,43 @@ function App() {
       <Projects darkMode={true} />
       <Contact darkMode={true} />
       <Footer darkMode={true} />
+      
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          style={{
+            position: 'fixed',
+            bottom: '30px',
+            right: '30px',
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            background: 'rgba(116, 185, 255, 0.9)',
+            backdropFilter: 'blur(10px)',
+            border: '2px solid rgba(255, 255, 255, 0.3)',
+            color: 'white',
+            fontSize: '20px',
+            cursor: 'pointer',
+            zIndex: 1000,
+            transition: 'all 0.3s ease',
+            boxShadow: '0 8px 25px rgba(116, 185, 255, 0.3)',
+            animation: 'fadeInUp 0.5s ease-out'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.background = 'rgba(116, 185, 255, 1)';
+            e.target.style.boxShadow = '0 12px 35px rgba(116, 185, 255, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.background = 'rgba(116, 185, 255, 0.9)';
+            e.target.style.boxShadow = '0 8px 25px rgba(116, 185, 255, 0.3)';
+          }}
+        >
+          <i className="fas fa-chevron-up"></i>
+        </button>
+      )}
     </div>
   );
 }

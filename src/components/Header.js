@@ -201,7 +201,7 @@ const Header = ({ darkMode }) => {
             animation: 'float 6s ease-in-out infinite'
           }}>
             <img 
-              src="https://via.placeholder.com/300x300/4682B4/ffffff?text=MH" 
+              src="/images/hadi.jpg" 
               alt="Muneer Hadi"
               style={{
                 width: 'clamp(250px, 25vw, 350px)',

@@ -22,24 +22,6 @@ const Projects = ({ darkMode }) => {
       tech: 'Laravel, Vue.js, MySQL',
       icon: <i className="fas fa-boxes"></i>,
       link: 'https://github.com/muneerhadi/Asset-Inventory-Project-Management-System'
-    },
-    {
-      title: 'Weather Forecast App',
-      description: 'Real-time weather application with location-based forecasts and interactive maps.',
-      tech: 'JavaScript, OpenWeather API, Mapbox',
-      icon: <i className="fas fa-cloud-sun"></i>
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'Responsive portfolio website with dark mode, animations, and modern design principles.',
-      tech: 'React, CSS3, Framer Motion',
-      icon: <i className="fas fa-briefcase"></i>
-    },
-    {
-      title: 'Chat Application',
-      description: 'Real-time messaging application with group chats, file sharing, and emoji support.',
-      tech: 'React, Node.js, Socket.io, MongoDB',
-      icon: <i className="fas fa-comments"></i>
     }
   ];
 

@@ -5,26 +5,26 @@ const Contact = ({ darkMode }) => {
     {
       icon: <i className="fas fa-phone"></i>,
       label: 'Phone',
-      value: '+964 770 123 4567',
-      link: 'tel:+9647701234567'
+      value: '+93 781 494 063',
+      link: 'tel:+93781494063'
     },
     {
       icon: <i className="fas fa-envelope"></i>,
       label: 'Email',
-      value: 'muneer.hadi@gmail.com',
-      link: 'mailto:muneer.hadi@gmail.com'
+      value: 'hadimuneer200@gmail.com',
+      link: 'mailto:hadimuneer200@gmail.com'
     },
     {
       icon: <i className="fab fa-linkedin"></i>,
       label: 'LinkedIn',
       value: 'linkedin.com/in/muneer-hadi',
-      link: 'https://linkedin.com/in/muneer-hadi'
+      link: 'https://www.linkedin.com/in/muneer-hadi-4a349a1ba?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BkiBUHuAOR9e9CFDZ8q3lKw%3D%3D'
     },
     {
       icon: <i className="fab fa-github"></i>,
       label: 'GitHub',
-      value: 'github.com/muneer-hadi',
-      link: 'https://github.com/muneer-hadi'
+      value: 'github.com/muneerhadi',
+      link: 'https://github.com/muneerhadi'
     }
   ];
 
@@ -70,8 +70,8 @@ const Contact = ({ darkMode }) => {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '30px',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '20px',
           marginBottom: '50px'
         }}>
           {contactInfo.map((contact, index) => (
@@ -79,41 +79,60 @@ const Contact = ({ darkMode }) => {
               key={index}
               href={contact.link}
               style={{
-                background: 'rgba(255,255,255,0.1)',
-                padding: '25px',
-                borderRadius: '20px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(20px)',
+                padding: '25px 20px',
+                borderRadius: '25px',
                 textDecoration: 'none',
                 color: 'white',
                 transition: 'all 0.3s ease',
                 animation: `fadeInUp 0.8s ease-out ${0.4 + index * 0.1}s both`,
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255,255,255,0.2)',
+                border: '1px solid rgba(255,255,255,0.3)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '20px'
+                gap: '15px',
+                boxShadow: '0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                position: 'relative',
+                overflow: 'hidden',
+                height: 'auto',
+                minHeight: '80px'
               }}
               onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-5px)';
-                e.target.style.background = 'rgba(255,255,255,0.2)';
-                e.target.style.boxShadow = '0 10px 30px rgba(116, 185, 255, 0.3)';
+                e.currentTarget.style.transform = 'translateY(-8px)';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.boxShadow = '0 20px 40px rgba(116, 185, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.background = 'rgba(255,255,255,0.1)';
-                e.target.style.boxShadow = 'none';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
               }}
             >
+              {/* Glass shine effect */}
               <div style={{
-                fontSize: '2rem',
-                minWidth: '50px',
-                color: '#74b9ff'
+                position: 'absolute',
+                top: 0,
+                left: '-100%',
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+                animation: `shine 4s infinite ${index * 0.5}s`
+              }} />
+              <div style={{
+                fontSize: '1.8rem',
+                minWidth: '40px',
+                color: '#74b9ff',
+                position: 'relative',
+                zIndex: 2
               }}>
                 {contact.icon}
               </div>
-              <div>
+              <div style={{ position: 'relative', zIndex: 2, flex: 1, minWidth: 0 }}>
                 <h4 style={{
-                  margin: '0 0 5px 0',
-                  fontSize: '1.2rem',
+                  margin: '0 0 3px 0',
+                  fontSize: '1.1rem',
                   fontFamily: 'Poppins, sans-serif'
                 }}>
                   {contact.label}
@@ -121,7 +140,10 @@ const Contact = ({ darkMode }) => {
                 <p style={{
                   margin: 0,
                   opacity: '0.8',
-                  fontSize: '1rem'
+                  fontSize: '0.85rem',
+                  wordBreak: 'break-word',
+                  overflowWrap: 'break-word',
+                  lineHeight: '1.3'
                 }}>
                   {contact.value}
                 </p>
